@@ -2,16 +2,20 @@
 
 #### Introduction
 
-Verifying quantum programs has attracted a lot of interest in recent years. In this paper, we consider the termination problem of quantum programs
-with nondeterminism.
+Verifying quantum programs has attracted a lot of interest in recent years.
+In this paper, we consider the termination problem of quantum programs with nondeterminism.
 To analyze termination effectively, we over-approximate the reachable set of quantum program states by the reachable subspace,
 which has an explicit algebraic structure.
-Compared with the counterpart in existing literature, our reachable subspace is more precise and can be computed in polynomial time.
+Compared with the counterpart in existing literature,
+our reachable subspace is more precise and can be computed in polynomial time.
 We illustrate the algebraic method via a running example --- the quantum Bernoulli factory protocol.
-Moreover, we study the set of divergent states from which the program terminates with probability zero under some scheduler. By exploiting the algebraic structure of the divergent set, we develop an effective approach using the existential theory of the reals.
+Moreover, we study the set of divergent states from which the program terminates with probability zero under some scheduler.
+By exploiting the algebraic structure of the divergent set, we develop an effective approach using the existential theory of the reals.
 The complexity is shown, for the first time, to be in exponential time.
 
-​	This repository is the Python implementation for algorithms introduced in "Termination Analysis of NondeterministicQuantum Programs Revisited". The prototypes of Algorithms have been implemented in the Wolfram language on Mathematica 11.3 with Intel Core i5-10700 CPU at 2.90GHz.  All the functions required  for analyzing the termination of a nondeterministic quantum program are listed as follows.
+​This repository is the Python implementation for the algorithms introduced in "Termination Analysis of NondeterministicQuantum Programs Revisited".
+The prototypes of Algorithms have been implemented in the Wolfram language on Mathematica 11.3 with Intel Core i5-10700 CPU at 2.90GHz.
+All the functions required for analyzing the termination of a nondeterministic quantum program are listed as follows.
 
 - **Initialization.nb**
 
@@ -36,23 +40,23 @@ The complexity is shown, for the first time, to be in exponential time.
    + **PDSpace**  computes the subspace of all pure divergent states under a given scheduler;
    + **ISpaceIntersectEmpty**  (resp.  **IISpaceIntersectEmpty**) checks whether the I-reachable (resp. II-reachable) subspace is disjoint with the set of pure divergent states.
 
-​        After fixing the dimension of the Hilbert space, a nondeterministic quantum programs, and an input state, one can invoke the algorithms by calling the above functions respectively.
+After fixing the dimension of the Hilbert space, a nondeterministic quantum programs, and an input state, one can invoke the algorithms by calling the above functions respectively.
 
-​       Generally, the functions in the files **ReachableSpaceI.nb** and **ReachableSpaceII.nb**  are efficient as their theoretical complexity is **PTIME**. They take time 16ms, 15ms and space 104.40MB, 103.51MB, respectively on the running example. Those in the file **DivergentSet.nb**  may be inefficient (in the worst case), due to the fact that the quantifier elimination and the derivation of the pure divergent set by a tree construction are both  **EXPTIME**. However, it fortunately takes time 2797ms and space 105.91MB on the running example.
+Generally, the functions in the files **ReachableSpaceI.nb** and **ReachableSpaceII.nb**  are efficient as their theoretical complexity is **PTIME**. They take time 16ms, 15ms and space 104.40MB, 103.51MB, respectively on the running example. Those in the file **DivergentSet.nb**  may be inefficient (in the worst case), due to the fact that the quantifier elimination and the derivation of the pure divergent set by a tree construction are both  **EXPTIME**. However, it fortunately takes time 2797ms and space 105.91MB on the running example.
 
 **How to replicate the example?**
 
-The supported version of Wolfram Mathematica must be 11.3 and above.
+The supported version of Wolfram Mathematica should be 11.3 and above.
 
 We have provided Wolfram Mathematica 12.0 with a graphical interface in the virtual machine ***vmcai-ae22.ova*** (The user name and password are ***vmcai***).
 
-If you have already installed Wolfram Mathematica in your PC, you can directly operate the .nb files provided in ***wolf*** directory. 
+If the Wolfram Mathematica is available at the local PC, one can directly operate the .nb files provided in ***wolf*** directory. 
 
 Note that the layout of initial data of examples in Linux version is slightly different from Windows/MacOS version.
 
 1. Calculate the I-type Reachable Space:
 
-    Open the file  ``` /home/vmcai/Desktop/TANQPR/wolf/ReachableSpaceI.nb```, select the content in the first cell (if you are new to Mathematica, you can refer to wolfram language https://reference.wolfram.com/language/?source=footer) and run it (shift+enter), then the result is displayed at the end of the file.
+    Open the file  ``` /home/vmcai/Desktop/TANQPR/wolf/ReachableSpaceI.nb```, select the content in the first cell (More wolfram language could be found at https://reference.wolfram.com/language/?source=footer) and run it (shift+enter), then the result is displayed at the end of the file.
 
 2. Calculate the II-type Reachable Space:
 
@@ -92,5 +96,5 @@ Note that the layout of initial data of examples in Linux version is slightly di
    {{1, 0, 0, 0}, {0, 0, 1/Sqrt[2], 1/Sqrt[2]}}
    ```
 
-   Then the run ends, and the result is displayed at the end of the file.
+   Finally the run ends, and the result is displayed at the end of the file.
    
